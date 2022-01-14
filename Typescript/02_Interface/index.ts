@@ -1,4 +1,6 @@
-// Interface 
+//? Interface -> 코드의 계약을 정의하는 것이라 할 수 있다.
+
+
 //? 객체를 생성하는 경우
 let user: object = {
   name: 'user',
@@ -33,7 +35,7 @@ let user4: User = {
 }
 //? interface에서 존재하지 않는 프로퍼티는 추가 불가
 
-//? 물음표를 사용하여 optional(선택적) 으로 가능하게 할 수 있다.
+//? 물음표를 사용하여 optional(선택적) 으로 가능하게 할 수 있다. -> 선택적 프로퍼티 (Optional Properties)
 interface User2 {
   name: string;
   age: number;
@@ -58,3 +60,74 @@ let user6: User3 = {
 }
 console.log(user6.birth) // 1999
 user6.birth = 2000 //! 에러 readonly이므로 변경 불가
+
+//? 
+interface User4 {
+  name: string;
+  age: number;
+  [grade : number] : Score;
+}
+let user7: User4 = {
+  name: 'user7',
+  age: 30,
+  1: 'A',
+  2: 'B',
+  3: 'F'
+}
+
+//? 함수 표현
+interface Add {
+  (num1:number , num2: number) : number;
+}
+const add : Add = (x,y) => {
+  return x+y
+}
+interface isAdult {
+  (age: number) : boolean;
+}
+const myAge: isAdult = (age) => {
+  return age > 19
+}
+
+//? implements -> 클래스 를 정의 할떄 사용
+
+interface Car {
+  color : string;
+  wheels: number;
+  start(): void
+}
+class Bmw implements Car {
+  color: 'red';
+  wheels: 4;
+  start() {
+    console.log('go~')
+  };
+}
+class Benz implements Car {
+  color;
+  wheels: 4;
+  constructor(color: string) {
+    this.color = color
+  };
+  start() { 
+    console.log('go~')
+  };
+}
+
+//? extends
+
+interface Toy {
+  name: string
+}
+interface ToyCar extends Car, Toy {
+  price: number;
+}
+const myToyCar : ToyCar = {
+  color: 'blue',
+  wheels: 4,
+  start() {
+    console.log('my car')
+  },
+  name: 'mycar',
+  price : 5000
+}

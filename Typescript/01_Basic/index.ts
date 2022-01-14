@@ -37,3 +37,9 @@ let myOs: Os = Os.Window;
 // null, undefined
 let c: null = null;
 let d: undefined = undefined;
+
+// type
+// 특정 값의 제한을 둘때 사용한다.
+type Score = 'A' | 'B' | 'C' | 'F';
+let myScore :Score = 'A'
+let myScore2 :Score = 'D' //! 에러
