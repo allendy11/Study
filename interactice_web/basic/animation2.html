@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  @keyframes run_img {
+    to {
+      background-position: -459px 0;
+    }
+    
+  }
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 70px;
+    height: 134px;
+    background: url('./images/CSS-Sprites.png') no-repeat -15px 0 / cover;
+    animation: run_img 1s infinite steps(6);
+  }
+</style>
+<body>
+  <div class="box"></div>
+</body>
+</html>
