@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  @keyframes moving {
+    from {
+      transform: translateX(0)
+    }
+    to {
+      transform: translateX(calc(80vw - 100px))
+    }
+  }
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .stage { 
+    width: 80vw;
+    height: 40vw;
+    background: yellow;
+    position: relative;
+  }
+  .button {
+    margin-top: 2rem;
+  }
+  .button button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem
+  }
+  .ball {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: tomato;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: moving infinite alternate linear
+  }
+</style>
+<body>
+  <div class="container">
+    <div class="stage"></div>
+    <div class="button">
+      <button id='btn_add'>add</button>
+    </div>
+  </div>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const add = document.querySelector('#btn_add')
+      const stage = document.querySelector('.stage')
+      const colors = ['red', 'green', 'black', 'blue', 'white', 'gray', 'pink','orange','skyblue','purple']
+      add.addEventListener('click', () => {
+        console.log('work')
+        const ball = document.createElement('div')
+        ball.classList.add('ball')
+        ball.style.animationDuration = `${Math.floor(Math.random()*4)+1}s`
+        ball.style.background = `${colors[Math.floor(Math.random()*9)]}`
+        stage.append(ball)
+      })
+      stage.addEventListener('click', e=> {
+        if(e.target.classList.contains('ball')) {
+          e.currentTarget.removeChild(e.target)
+        }
+      })
+    })
+  </script>
+</body>
+</html>
