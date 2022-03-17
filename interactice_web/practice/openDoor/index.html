@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{ 
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100vw;
+      height: 100vh;
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .door {
+      width: 100px;
+      height: 150px;
+      position: relative;
+    }
+    .door_back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+    .ball {
+      position: absolute;
+      bottom: 0;
+      left: center;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: white;
+      transform: translate3d(100px,0,0);
+      transition: 0.5s 0.5s
+    }
+    .door_body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.5s;
+      transform-origin: left
+
+    }
+    .door:nth-child(1) .door_body {
+      background-color: rgba(255, 0 , 0 ,0.7);
+    }
+    .door:nth-child(2) .door_body {
+      background-color: rgba(0, 255 , 0 ,0.7);
+    }
+    .door:nth-child(3) .door_body {
+      background-color: rgba(0, 0 , 255 ,0.7);
+    }
+    .door_active .ball {
+      transform: translate3d(0,0,0)
+    }
+    .door_active .door_body {
+      transform: perspective(800px) rotateY(-110deg);
+    }
+  </style>
+</head>
+  
+<body>
+  <div class="container">
+    <div class="door">
+      <div class="door_back">
+
+        <div class="ball"></div>
+      </div>
+      <div class="door_body"></div>
+    </div>
+    <div class="door">
+      <div class="door_back">
+
+        <div class="ball"></div>
+      </div>
+      <div class="door_body"></div>
+    </div>
+    <div class="door">
+      <div class="door_back">
+
+        <div class="ball"></div>
+      </div>
+      <div class="door_body"></div>
+    </div>
+  </div>
+  <script>
+    (function() {
+      const container = document.querySelector('.container')
+      let opendDoor;
+      function openHandler(door) {
+        door.classList.add('door_active')
+      }
+      function closeHandler(door) {
+        door.classList.remove('door_active')
+
+      }
+      function clickHandler(e) {
+        const doorBody = e.target
+        if(opendDoor) {
+          closeHandler(opendDoor)
+        }
+        if(doorBody.classList.contains('door_body')) {
+          openHandler(doorBody.parentNode)
+          opendDoor = doorBody.parentNode
+        }
+      }
+      container.addEventListener('click', clickHandler)
+    
+    })()
+  </script>
+</body>
+</html>

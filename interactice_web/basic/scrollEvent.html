@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg)
+      }
+      to {
+        transform: rotate(180deg)
+        
+      }
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 100vw;
+      height: 500vh
+    }
+    .top_bar {
+      width: 100vw;
+      height: 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 2rem;
+      line-height: 3rem;
+      background-color: darkcyan;
+    }
+    .page {
+
+    }
+    .section {
+      width: 100vw;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section:nth-child(1) {
+      background-color: darkgoldenrod;
+    
+    }
+    .section:nth-child(2) {
+      background-color: darkgreen;
+    }
+    .section:nth-child(3) {
+      background-color: darkmagenta;
+    }
+    .section img {
+      width: 200px;
+      transition: 1s
+    }
+    .img_size_active {
+      transform: scale(2);
+      
+    }
+    /* .img_rotate_active {
+      animation: rotate 1s;
+    } */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top_bar">
+      <span>
+        scroll : 
+      </span>
+      <span id='scroll_pos'></span>
+    </div>
+    <div class="page">
+      <div class="section">
+        <img src="./images/star.png" alt="" id='img_size'>
+      </div>
+      <div class="section">
+        <img src="./images/star.png" alt="" id='img_rotate'>
+
+      </div>
+      <div class="section">
+        <img src="./images/star.png" alt="" id='img_move'>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const imgSize = document.querySelector('#img_size')
+      const imgRotate = document.querySelector('#img_rotate')
+      const imgMove = document.querySelector('#img_move')
+      const scrollPos = document.querySelector('#scroll_pos')
+      let degree = 0;
+
+      function showPos() {
+        // scrollPos.innerHTML = window.pageYOffset
+        scrollPos.innerHTML = imgSize.getBoundingClientRect().top
+
+      }
+      function sizeHandler() {
+        const imgSizePos = imgSize.getBoundingClientRect().top
+        // console.log(window.innerHeight * 0.2)
+        if(imgSizePos < window.innerHeight * 0.2 && imgSizePos > 0) {
+          imgSize.classList.add('img_size_active')
+        } else {
+          imgSize.classList.remove('img_size_active')
+
+        }
+      }
+      function rotateHandler() {
+        degree += 1;
+        imgRotate.classList.add('img_rotate_active')
+        imgRotate.style.transform = `rotate(${degree}deg)`
+      }
+      function moveHandler() {}
+      function scrollHandler() {
+        showPos()
+        sizeHandler()
+        rotateHandler()
+        moveHandler()
+      }
+
+      window.addEventListener('scroll', scrollHandler)
+    })()
+  </script>
+</body>
+</html>
