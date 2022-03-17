@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes moving {
+      from {
+        transform: translate(0,0);
+      }
+      to {
+        transform: translate(-500px,-500px);
+      }
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+    }
+    .stage {
+      width: 80vw;
+      height: 60vw;
+      background-color: yellow;
+      position: relative;
+    }
+    .ball {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transition: 1s 0.1s;
+    }
+    .ball:nth-child(1) {
+      background-color: red;
+      /* top: 0;
+      left: 0; */
+
+    }
+    .ball:nth-child(2) {
+      background-color: blue;
+      bottom: 0;
+      right: 0;
+    }
+    .ball_active {
+      border: 50px solid white;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div id='ball_1' class="ball"></div>
+    <div id='ball_2' class="ball"></div>
+  </div>
+  <script>
+    (function(){
+      const stage = document.querySelector('.stage')
+      const ball_1 = document.querySelector('#ball_1')
+      const ball_2 = document.querySelector('#ball_2')
+      window.addEventListener('click', function(e) {
+        const pos = {
+          x: e.clientX - (ball_1.getBoundingClientRect().width)/2,
+          y: e.clientY - (ball_1.getBoundingClientRect().height)/2
+        }
+        ball_1.style.transform = `translate(${pos.x}px,${pos.y}px)`
+
+        ball_2.style.animation = `moving 1s 3`
+      })
+      window.addEventListener('transitionstart', function() {
+        ball_1.classList.add('ball_active')
+      })
+      window.addEventListener('animationstart', function(){
+        ball_2.classList.add('ball_active')
+      })
+      // window.addEventListener('transitionend', function() {
+        //   ball_1.classList.remove('ball_active') // 무한 루프에 빠짐
+        // })
+        window.addEventListener('animationend', function(){
+        ball_2.classList.remove('ball_active')
+        ball_1.classList.remove('ball_active') //작동 안됨
+
+      })
+    })()
+  </script>
+</body>
+</html>
