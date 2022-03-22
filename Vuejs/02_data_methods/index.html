@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">{{another()}}</div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        person: {
+          name: 'kimcoding',
+          age: 34,
+        }
+      },
+      methods: {
+        introduce() { return `${this.person.name}의 나이는 ${this.person.age}입니다.`},
+        another() { return this.introduce()}
+      }
+
+    })
+  </script>
+</body>
+</html>
