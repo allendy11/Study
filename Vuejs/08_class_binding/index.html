@@ -19,22 +19,23 @@
 </head>
 <body>
   <div id="app">
-    <div class="box font-text">
+    <div class="box font-text"> <!-- 기본 -->
       hello
     </div>
     <p></p>
-    <div :class="{box: activeBox, 'font-text': activeText}">
+    <div :class="{box: activeBox, 'font-text': activeText}"><!-- 클래스 바인딩1-->
       hello
     </div>
-    <button @click="changeFont">Click</button>
+    <button @click="changeFont">Click</button> <!-- 클래스 바인딩1 컨트롤 -->
     <p></p>
-    <div :class='activeClass'>hello</div>
-    <button @click='changeFont2'>Click</button>
+    <div :class='activeClass'>hello</div> <!-- 클래스 바인딩2 -객체 -->
+    <button @click='changeFont2'>Click</button><!-- 클래스 바인딩2 컨트롤 -->
     <p></p>
-    <div :class="[activeBox2, activeText2]">hello</div>
+    <div :class="[activeBox2, activeText2]">hello</div> <!-- 클래스 바인딩3 -배열 -->
     <p></p>
-    <div :class="[isActive? activeBox2 : '', activeText2]">hello</div>
+    <div :class="[isActive? activeBox2 : '', activeText2]">hello</div> <!-- 클래스 바인딩4 -배열 삼항 연산자  -->
   </div>
+  <!-- 컴포넌트도 클래스 바인딩 미구현 -->
   <script>
     new Vue({
       el: '#app',
@@ -60,6 +61,6 @@
         }
       }
     })
-  </script>
-</body>
-</html>
+    </script>
+    </body>
+    </html>
