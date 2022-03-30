@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .box {
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+    .font-text {
+      color: blue;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="box font-text">
+      hello
+    </div>
+    <p></p>
+    <div :class="{box: activeBox, 'font-text': activeText}">
+      hello
+    </div>
+    <button @click="changeFont">Click</button>
+    <p></p>
+    <div :class='activeClass'>hello</div>
+    <button @click='changeFont2'>Click</button>
+    <p></p>
+    <div :class="[activeBox2, activeText2]">hello</div>
+    <p></p>
+    <div :class="[isActive? activeBox2 : '', activeText2]">hello</div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        activeBox: false,
+        activeText: false,
+        activeClass: {
+          box: false,
+          'font-text': false,
+        },
+        isActive: false,
+        activeBox2: "box",
+        activeText2: "font-text"
+      },
+      methods: {
+        changeFont() {
+          this.activeBox = !this.activeBox;
+          this.activeText = !this.activeText;
+        },
+        changeFont2() {
+          this.activeClass.box = !this.activeClass.box;
+          this.activeClass['font-text'] = !this.activeClass['font-text']
+        }
+      }
+    })
+  </script>
+</body>
+</html>
