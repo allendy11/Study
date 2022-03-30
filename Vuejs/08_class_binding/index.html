@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .box {
+      font-weight: 900;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+    .font-text {
+      color: blue;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div class="box font-text"> <!-- 기본 -->
+      hello
+    </div>
+    <p></p>
+    <div :class="{box: activeBox, 'font-text': activeText}"><!-- 클래스 바인딩1-->
+      hello
+    </div>
+    <button @click="changeFont">Click</button> <!-- 클래스 바인딩1 컨트롤 -->
+    <p></p>
+    <div :class='activeClass'>hello</div> <!-- 클래스 바인딩2 -객체 -->
+    <button @click='changeFont2'>Click</button><!-- 클래스 바인딩2 컨트롤 -->
+    <p></p>
+    <div :class="[activeBox2, activeText2]">hello</div> <!-- 클래스 바인딩3 -배열 -->
+    <p></p>
+    <div :class="[isActive? activeBox2 : '', activeText2]">hello</div> <!-- 클래스 바인딩4 -배열 삼항 연산자  -->
+  </div>
+  <!-- 컴포넌트도 클래스 바인딩 미구현 -->
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        activeBox: false,
+        activeText: false,
+        activeClass: {
+          box: false,
+          'font-text': false,
+        },
+        isActive: false,
+        activeBox2: "box",
+        activeText2: "font-text"
+      },
+      methods: {
+        changeFont() {
+          this.activeBox = !this.activeBox;
+          this.activeText = !this.activeText;
+        },
+        changeFont2() {
+          this.activeClass.box = !this.activeClass.box;
+          this.activeClass['font-text'] = !this.activeClass['font-text']
+        }
+      }
+    })
+    </script>
+    </body>
+    </html>
