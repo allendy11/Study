@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div :style="{color: color, fontSize: size}">hello</div>
+    <br>
+    <div :style="styleObject">hello</div>
+    <br>
+    <div :style="[styleObject, styleObject2]">hello</div>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        color: 'red',
+        size: '30px',
+        styleObject: {
+          color: 'blue',
+          fontSize: '20px'
+        },
+        styleObject2: {
+          fontWeight: '800',
+          textTransform: 'uppercase'
+        }
+      }
+    })
+  </script>
+</body>
+</html>
