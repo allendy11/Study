@@ -23,6 +23,22 @@
       <button @click='setOne'>setOne</button>
       <button @click='decreaseNum'>decrease</button>
     </div>
+    <br>
+    <div class="part-3">
+      <template v-if='showTemp'>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+      </template>
+      <template v-else='showTemp'>
+        <div>a</div>
+        <div>b</div>
+        <div>c</div>
+        <div>d</div>
+      </template>
+      <button @click='toggleList'>toggle list</button>
+    </div>
 
   </div>  
   <script>
@@ -31,6 +47,7 @@
       data: {
         show: true,
         number: 1,
+        showTemp: true
       },
       methods: {
         toggleShow() {
@@ -44,6 +61,9 @@
         },
         setOne() {
           this.number = 1;
+        },
+        toggleList() {
+          this.showTemp = !this.showTemp
         }
       }
     })
