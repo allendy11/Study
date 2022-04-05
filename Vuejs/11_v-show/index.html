@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <div v-show='show'>yes</div>
+      <button @click='toggle'>click</button>
+    </div>
+    <script>
+      new Vue({
+        el:"#app",
+        data: {
+          show: true,
+        },
+        methods: {
+          toggle() {
+            this.show =!this.show
+          }
+        }
+      })
+    </script>
+</body>
+</html>
