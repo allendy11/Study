@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id="app1">
+		<div>전역 컴포넌트 사용</div>
+    <hello-world></hello-world><br>
+    <text-handler></text-handler><br>
+		<div>지역 컴포넌트 사용</div>
+    <increase-number></increase-number>
+  </div>
+
+  <script>
+    Vue.component('hello-world',{ //전역 컴포넌트
+      template: `<div>Hello world</div>`
+    })
+    Vue.component('text-handler',{ //전역 컴포넌트
+      template: `
+        <div>
+          <hello-world></hello-world>
+          {{this.name}}<br>
+          <button @click='textChange'>click</button>
+
+        </div>
+      `,
+      data() {
+        return {name: 'kimcoding'}
+      },
+      methods: {
+        textChange() {
+          this.name = 'kimcoding updated.'
+        }
+      }
+    })
+    const increaseNumber = {  //지역 컴포넌트
+      template: `<div>{{this.number}}<br><button @click="plusNumber">click</button></div>`,
+      data() {
+        return {
+          number: 0
+        }
+      },
+      methods: {
+        plusNumber() {
+          this.number++
+        }
+      }
+    }
+    const app1 = new Vue({
+      el: '#app1',
+      components: { // 지역 컴포넌트를 사용하기 위해서는 등록을 해야한다.
+        'increase-number': increaseNumber
+      }
+
+    })
+  </script>
+</body>
+</html>
