@@ -1,0 +1,13 @@
+<DELETE>
+
+-deleteOne
+db.<컬렉션 이름>.deleteOne({"필드":"값"})
+해당필드를 삭제한다.
+
+-deleteMany
+db.<컬렉션 이름>.deleteMany({"필드":"값"})
+deleteOne과 동일하나 중복된 결과물이 있을경우 모두 삭제
+
+-drop
+db.<컬렉션 이름>.drop()
+해당 컬렉션을 삭제 한다.

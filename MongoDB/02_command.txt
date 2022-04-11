@@ -1,0 +1,6 @@
+데이터베이스 보기 : show dbs
+데이터베이스 사용 : use <DB이름>
+컬렉션 보기 : show collections
+
+
+
