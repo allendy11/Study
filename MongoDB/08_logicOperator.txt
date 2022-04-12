@@ -1,0 +1,18 @@
+-논리 연산자 (logic operator)
+and, or, nor 은 뒤에 배열이 오지만 not은 하나를 부정하기 때문에 배열이 불필요. 
+not 은 비교연산자와 형태가 같다. ($ne 와 비슷하다)
+  <logic operator> : [{},{},...] 
+
+$and : 모두 일치
+  사용법
+    db.user.find({$and: [{"name": "Jane"},{"age": "30"}]})
+  and 생략
+    db.user.find({"name": "Jane","age": "30"})
+  and 생략 불가능한 경우 : 동일한 연산자를 두번 이상 포함하는 경우 (아래는 $or 이 두번 반복되고 있다.)
+    db.user.find({"$and": [{"$or": [{"name":"jane"},{"age":30}]},{"$or": [{"name":"mike"},{"age":20}]})
+
+$or : 하나라도 일치
+$nor : 모두 불일치
+$not : 불일치
+  사용
+    db.user.find({"job": {"$not": "student"}}) // 직업이 학생이 아닌 유저
