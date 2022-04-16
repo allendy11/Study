@@ -1,0 +1,8 @@
+1. 설치
+  npm install -g @vue/cli
+
+2. 프로젝트 생성
+  vue create <폴더명>
+  
+2.1. 프로젝트 생성 (vue 설치 x) 
+  npx @vue/cli create <폴더명>

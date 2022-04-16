@@ -1,0 +1,19 @@
+<쿼리 연산자>
+쿼리 연산자는 데이터베이스내에서 데이터를 찾는 다양한 방법을 제공한다.
+비교, 논리, 표현, 배열 연산자등이 있다.
+사용법: { <field> : { <operator> : <value>} }
+
+-비교연산자 (compare operator)
+$eq = equal to
+  db.user.find({"age" : {"$eq": 30}}) // 나이가 30인 유저
+$ne != not equal to
+  db.user.find({"age" : {"$ne": 30}}) // 나이가 30이 아닌 유저
+$gt > greater than
+  db.user.find({"age" : {"$gt": 30}}) // 나이가 30보다 큰유저
+$lt < less than
+  db.user.find({"age" : {"$lt": 30}}) // 나이가 30보다 작은유저
+$gte >= grater than or equal to 
+  db.user.find({"age" : {"$gte": 30}}) // 나이가 30보다 크거나 같은 유저
+$lte <= less than or equal to
+  db.user.find({"age" : {"$lte": 30}}) // 나이가 30보다 작거나 같은 유저
+

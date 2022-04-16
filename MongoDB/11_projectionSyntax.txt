@@ -1,0 +1,14 @@
+Projection
+  : find의 두번째 인자에 추가하여 원하는 필드만 볼수 있다. 
+  : <field>:1 또는 <field>:0 과 같이 들어가며, 1인경우 지정한 필드를 포함하고 0이면 제외한다.
+  : 하나의 쿼리문에 1 또는 0 만을 사용하지만 디폴트로 포함되는 _id를 제외한다면 혼용할수는 있다. (_id가 불필요한 경우는 거의 없으므로 혼용해서 사용하는 빈도는 낮다)
+  db.user.find({"name":"jane", "age":30}, {"name":1, "age":1, "job":1})
+    : 결과물의 필드는 id, name, age, job 만 출력하게 된다.
+
+
+$elemMatch
+  : 보통의 경우 필드가 객체를 요소로하는 배열일 때 특정 요소를 찾을 때 사용
+  : Projection에서도 제한을 두기 위해 사용한다.
+    db.user.find({"name":"jane"}, {"scores":{"$elemMatch":{"score":{$gt":85}}}})
+      : name이 jane인 도규먼트에서 id, socres 만 출력하되, scores의 요소는 score가 85보다 큰값만 가지고있는 값만 출력된다.
+      
