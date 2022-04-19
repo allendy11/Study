@@ -10,7 +10,7 @@
 import ShowTitle from "@/components/Page/ShowTitle.vue";
 export default {
   components: {
-    ShowTitle: ShowTitle,
+    ShowTitle,
   },
 };
 </script>

@@ -9,7 +9,7 @@
 import PageComponent from "@/components/Page/ChangeName.vue";
 export default {
   components: {
-    PageComponent: PageComponent,
+    PageComponent,
   },
 };
 </script>
