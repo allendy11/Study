@@ -9,19 +9,25 @@
 <body>
   <div id="app">
     <input type="text" :value="text1" @keyup='updateText1'>
-    <div>{{text1}}</div>
+    <div>text1: {{text1}}</div>
+    <br>
     <input type="text" :value="text2" @change='updateText2'>
-    <div>{{text2}}</div>
-    <input type="text" v-model='text3'>
-    <div>{{text3}}</div>
+    <div>text2: {{text2}}</div>
+    <br>
+    <input type="text" :value="text3" @input='updateText3'>
+    <div>text3: {{text3}}</div>
+    <br>
+    <input type="text" v-model='text4'> <!-- text3 와 text4는 같다 (v-bind:value='text', v-on:input='인풋함수' => v-model=('text'))-->
+    <div>text4: {{text4}}</div>
   </div>
   <script>
     new Vue({
       el: '#app',
       data: {
-        text1: 'text1',
-        text2: 'text2',
-        text3: 'text3',
+        text1: '',
+        text2: '',
+        text3: '',
+        text4: '',
       },
       methods: {
         updateText1(e) {
@@ -29,6 +35,9 @@
         },
         updateText2(e) {
           this.text2 = e.target.value
+        },
+        updateText3(e) {
+          this.text3 = e.target.value
         },
        
       }

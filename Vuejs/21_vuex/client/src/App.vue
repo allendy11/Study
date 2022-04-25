@@ -4,7 +4,7 @@
     <CompleteTodo :todos="todos" />
     <AddTodo @add-todo="addTodo" />
     <hr />
-    <TodoList :todos="todos" />
+    <TodoList :todos="todos" @toggle-todo="toggleTodo" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
         {
           id: 1,
           title: "Study code",
-          checked: false,
+          checked: true,
         },
         {
           id: 2,
@@ -43,6 +43,10 @@ export default {
         checked: false,
       };
       this.todos.push(todo);
+    },
+    toggleTodo({ id, checked }) {
+      const index = this.todos.findIndex((el) => el.id === id);
+      this.todos[index].checked = checked;
     },
   },
 };

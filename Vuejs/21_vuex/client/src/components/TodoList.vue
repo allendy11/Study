@@ -1,5 +1,12 @@
 <template>
-  <div><TodoView v-for="todo in todos" :key="todo.id" :todo="todo" /></div>
+  <div>
+    <TodoView
+      v-for="todo in todos"
+      :key="todo.id"
+      :todo="todo"
+      @toggle-todo="toggleTodo"
+    />
+  </div>
 </template>
 
 <script>
@@ -12,6 +19,11 @@ export default {
     todos: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    toggleTodo({ id, checked }) {
+      this.$emit("toggle-todo", { id, checked });
     },
   },
 };

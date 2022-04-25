@@ -5,6 +5,7 @@
       type="text"
       @keyup.enter="addTodo"
       placeholder="Type Todo"
+      @input="saveInputText"
     />
     <button @click="addTodo">Add</button>
   </div>
@@ -18,10 +19,12 @@ export default {
     };
   },
   methods: {
-    addTodo(e) {
-      console.log(e);
-      this.$emit("add-todo", e.target.value);
+    addTodo() {
+      this.$emit("add-todo", this.inputText);
       this.inputText = "";
+    },
+    saveInputText(e) {
+      this.inputText = e.target.value;
     },
   },
 };
