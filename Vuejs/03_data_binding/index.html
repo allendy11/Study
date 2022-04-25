@@ -8,7 +8,8 @@
 </head>
 <body>
   <div id='app'>
-    <input :type="type" :value="greeting('kimcoding')">
+    <input v-bind:type="type" :value="greeting('kimcoding')">
+    <input :type="type" :value="greeting('kimcoding')"> <!-- v-bind:type -> :type-->
   </div>
   <script>
     new Vue({
