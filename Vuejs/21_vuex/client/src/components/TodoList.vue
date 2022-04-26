@@ -5,6 +5,7 @@
       :key="todo.id"
       :todo="todo"
       @toggle-todo="toggleTodo"
+      @delete-todo="deleteTodo"
     />
   </div>
 </template>
@@ -24,6 +25,9 @@ export default {
   methods: {
     toggleTodo({ id, checked }) {
       this.$emit("toggle-todo", { id, checked });
+    },
+    deleteTodo(id) {
+      this.$emit("delete-todo", id);
     },
   },
 };
