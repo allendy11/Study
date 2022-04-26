@@ -2,7 +2,7 @@
   <div>
     <input type="checkbox" :checked="todo.checked" @change="toggleTodo" />
     <span>{{ todo.title }}</span>
-    <button>Delete</button>
+    <button @click="deleteTodo">Delete</button>
   </div>
 </template>
 
@@ -20,6 +20,9 @@ export default {
         id: this.todo.id,
         checked: e.target.checked,
       });
+    },
+    deleteTodo() {
+      this.$emit("delete-todo", this.todo.id);
     },
   },
 };

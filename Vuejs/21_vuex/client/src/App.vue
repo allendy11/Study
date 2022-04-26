@@ -4,7 +4,11 @@
     <CompleteTodo :todos="todos" />
     <AddTodo @add-todo="addTodo" />
     <hr />
-    <TodoList :todos="todos" @toggle-todo="toggleTodo" />
+    <TodoList
+      :todos="todos"
+      @toggle-todo="toggleTodo"
+      @delete-todo="deleteTodo"
+    />
   </div>
 </template>
 
@@ -36,17 +40,35 @@ export default {
   },
   methods: {
     addTodo(title) {
-      const id = this.todos[this.todos.length - 1].id + 1;
-      const todo = {
-        id,
-        title,
-        checked: false,
-      };
+      let id = 0;
+      let todo = {};
+      if (this.todos.length === 0) {
+        id = 1;
+        todo = {
+          id,
+          title,
+          checked: false,
+        };
+      } else {
+        id = this.todos[this.todos.length - 1].id + 1;
+        todo = {
+          id,
+          title,
+          checked: false,
+        };
+      }
       this.todos.push(todo);
+      console.log(this.todos);
     },
     toggleTodo({ id, checked }) {
-      const index = this.todos.findIndex((el) => el.id === id);
-      this.todos[index].checked = checked;
+      const idx = this.todos.findIndex((el) => el.id === id);
+      this.todos[idx].checked = checked;
+      console.log(this.todos);
+    },
+    deleteTodo(id) {
+      const idx = this.todos.findIndex((el) => el.id === id);
+      this.todos.splice(idx, 1);
+      console.log(this.todos);
     },
   },
 };
