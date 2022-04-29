@@ -14,3 +14,23 @@ a {
 * {
   box-sizing: border-box;
 }
+/*! Top.js */
+.top_menu > img {
+  height: 60px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.top_menu {
+  display: flex;
+  justify-content: space-between;
+}
+/*! Menu.js */
+.top_menu .menu {
+  display: flex;
+  margin: 20px;
+}
+.top_menu .menu > div {
+  margin: 0 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
