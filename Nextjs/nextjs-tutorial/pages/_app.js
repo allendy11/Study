@@ -4,7 +4,7 @@ import Footer from "../src/components/Footer";
 import Top from "../src/components/Top";
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <div className="App">
       <Top />
       <Component {...pageProps} />
       <Footer />
