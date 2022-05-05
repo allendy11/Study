@@ -1,29 +1,86 @@
+// function solution(record) {
+//   var answer = [];
+//   let id = 0;
+//   for (let i = 0; i < record.length; i++) {
+//     let arr = record[i].split(" ");
+//     if (arr[0] === "Enter") {
+//       let userIdArr = answer.map((el) => (el = el.userId));
+//       if (userIdArr.includes(arr[1])) {
+//       } else console.log("no");
+//       var obj = {
+//         id,
+//         userId: arr[1],
+//         nickname: arr[2],
+//         message: `${arr[2]}님이 들어왔습니다.`,
+//       };
+//       answer.push(obj);
+//     } else if (arr[0] === "Leave") {
+//       var obj = {
+//         id,
+//         userId: arr[1],
+//         nickname: arr[2],
+//         message: `${arr[2]}님이 들어왔습니다.`,
+//       };
+//     } else if (arr[0] === "Change") {
+//     }
+//   }
+//   return answer;
+// }
 function solution(record) {
   var answer = [];
-  let id = 0;
+  let objArr = [];
+  let tempArr = [];
+  function enterMessage(objArr) {
+    let result = [];
+    for (let i = 0; i < objArr.length; i++) {
+      if (objArr[i].action === "Enter") {
+        result.push(`${objArr[i].nickname}님이 들어왔습니다.`);
+      } else if (objArr[i].action === "Leave") {
+        result.push(`${objArr[i].nickname}님이 나갔습니다.`);
+      }
+    }
+    return result;
+  }
   for (let i = 0; i < record.length; i++) {
-    let arr = record[i].split(" ");
-    if (arr[0] === "Enter") {
-      let userIdArr = answer.map((el) => (el = el.userId));
-      if (userIdArr.includes(arr[1])) {
-      } else console.log("no");
+    tempArr = record[i].split(" ");
+    if (tempArr[0] === "Enter") {
+      var filteredArr = objArr.filter((el) => el.userId === tempArr[1]);
+      if (filteredArr) {
+        filteredArr.forEach((el) => {
+          if (el.nickname !== tempArr[2]) {
+            el.nickname = tempArr[2];
+          }
+        });
+      }
       var obj = {
-        id,
-        userId: arr[1],
-        nickname: arr[2],
-        message: `${arr[2]}님이 들어왔습니다.`,
+        id: i,
+        userId: tempArr[1],
+        nickname: tempArr[2],
+        action: "Enter",
       };
-      answer.push(obj);
-    } else if (arr[0] === "Leave") {
+      objArr.push(obj);
+    } else if (tempArr[0] === "Leave") {
+      var filteredArr = objArr.filter((el) => el.userId === tempArr[1]);
+      var nickname = "";
+      if (filteredArr) {
+        nickname = filteredArr[0].nickname;
+      }
       var obj = {
-        id,
-        userId: arr[1],
-        nickname: arr[2],
-        message: `${arr[2]}님이 들어왔습니다.`,
+        id: i,
+        userId: tempArr[1],
+        nickname,
+        action: "Leave",
       };
-    } else if (arr[0] === "Change") {
+      objArr.push(obj);
+    } else if (tempArr[0] === "Change") {
+      objArr
+        .filter((el) => el.userId === tempArr[1])
+        .map((ele) => {
+          ele.nickname = tempArr[2];
+        });
     }
   }
+  answer = enterMessage(objArr);
   return answer;
 }
 
@@ -34,4 +91,4 @@ let result = solution([
   "Enter uid1234 Prodo",
   "Change uid4567 Ryan",
 ]);
-// console.log(result);
+console.log(result);
