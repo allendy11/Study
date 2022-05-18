@@ -13,6 +13,7 @@ type Print2<T> = {
   (name: T): T;
 };
 const havePrint2: Print2<string> = (name) => name;
+// Print -> Print2 표현가능해진다.
 
 // 함수 타입
 type Print3 = <T>(a: T[]) => T;
