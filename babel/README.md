@@ -19,12 +19,13 @@ es6로 코드 실행
 변환과 실행을 한번에 
   npm i -D @babel/node
   npx babel-node --presets @babel/env index.js
-스크립트에 위의 커맨드를 넣어서 사용가능하지만 프리셋 옵션을 생략하기 위해서는 package.json에서 다음을 추가
+프리셋 옵션을 생략하기 위해서는 package.json에서 다음을 추가
   "babel": {
     "presets": ["@babel/env"]
   },
 생략된 커맨드
   npx babel-node index.js
+위의 커맨드를 스크립트에 추가하여 사용할 수 있다.
 Reference
 https://www.daleseo.com/js-babel/
 https://www.daleseo.com/js-babel-node/
