@@ -1,5 +1,6 @@
 package Java.Tutorial_06;
 
+// 반복문
 public class Main {
   final static int N = 30;
 
