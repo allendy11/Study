@@ -1,4 +1,4 @@
-package Java.Tutorial_08;
+package Java.Tutorial.Tutorial_08;
 
 // 사용자 정의 함수
 public class Main {

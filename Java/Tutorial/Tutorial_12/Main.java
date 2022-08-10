@@ -1,4 +1,4 @@
-package Java.Tutorial_12;
+package Java.Tutorial.Tutorial_12;
 
 // 반복 함수, 재귀함수 : factorial
 

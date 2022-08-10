@@ -1,4 +1,4 @@
-package Java.Tutorial_04;
+package Java.Tutorial.Tutorial_04;
 
 public class Main {
   final static int SECOND = 1000;

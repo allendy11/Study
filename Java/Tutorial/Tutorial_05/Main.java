@@ -1,4 +1,4 @@
-package Java.Tutorial_05;
+package Java.Tutorial.Tutorial_05;
 
 // 조건문
 public class Main {

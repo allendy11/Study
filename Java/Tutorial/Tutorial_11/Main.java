@@ -1,4 +1,4 @@
-package Java.Tutorial_11;
+package Java.Tutorial.Tutorial_11;
 
 //  최대값을 반환하시오.
 public class Main {

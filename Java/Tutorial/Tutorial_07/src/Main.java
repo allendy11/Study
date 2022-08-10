@@ -1,4 +1,4 @@
-package Java.Tutorial_07.src;
+package Java.Tutorial.Tutorial_07.src;
 
 import java.io.File;
 import java.io.FileNotFoundException;

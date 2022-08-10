@@ -1,4 +1,4 @@
-package Java.Tutorial_02;
+package Java.Tutorial.Tutorial_02;
 
 public class Main {
   final static double PI = 3.141592; // 상수 선언

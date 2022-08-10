@@ -1,4 +1,4 @@
-package Java.Tutorial_01;
+package Java.Tutorial.Tutorial_01;
 
 public class Main {
   public static void main(String[] args) {

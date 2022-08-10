@@ -1,4 +1,4 @@
-package Java.Tutorial_06;
+package Java.Tutorial.Tutorial_06;
 
 // 반복문
 public class Main {

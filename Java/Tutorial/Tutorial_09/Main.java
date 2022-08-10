@@ -1,4 +1,4 @@
-package Java.Tutorial_09;
+package Java.Tutorial.Tutorial_09;
 
 //  주어진 수의 k 번째 약수를 구하시오.
 public class Main {

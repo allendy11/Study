@@ -1,4 +1,4 @@
-package Java.Tutorial_10;
+package Java.Tutorial.Tutorial_10;
 
 // 주어진 문자열의 마자막 문자를 반환하시오
 public class Main {
