@@ -2,6 +2,7 @@ package Java.Tutorial.Tutorial_14;
 
 import java.util.Scanner;
 
+// 배열 : 배열의 길이를 입력받고 길이 만큼 숫자를 입력받아서 가장 큰수를 리턴하시오.
 public class Main {
   public static int max(int a, int b) {
     return a > b ? a : b;
