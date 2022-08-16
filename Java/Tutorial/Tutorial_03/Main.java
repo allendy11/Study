@@ -16,10 +16,3 @@ public class Main {
     System.out.println(name.substring(0, 1));
   }
 }
-
-/*
- * Quick Fix 단축키 : Ctrl + .
- * 문자열에서 \n 은 한줄 띄우기이다
- * format 이라는 메소드를 통해서 %? 가 무엇인가에 따라서
- * 포맷이 바뀌며 두번째 인자의 값이 들어가게 된다. %o : 8진수 , %x : 16진수
- */

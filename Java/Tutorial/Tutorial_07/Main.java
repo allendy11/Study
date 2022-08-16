@@ -25,7 +25,7 @@ public class Main {
       sc2.close();
     } catch (FileNotFoundException e) {
       // TODO Auto-generated catch block
-      // e.printStackTrace();
+      e.printStackTrace(); 
       System.out.println("Not found file");
     }
   }
