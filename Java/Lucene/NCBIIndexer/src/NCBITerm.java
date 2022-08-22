@@ -1,10 +1,14 @@
 
 public class NCBITerm {
-	int docId;
-	String key;
-	public NCBITerm(String TaxID, int docID) {
-		// TODO Auto-generated constructor stub
-		this.key = TaxID;
-		this.docId = docID;
+	public String taxId;
+	public int docId;
+	public String taxDetail;
+	
+	public NCBITerm(String taxId, int docId, String taxDetail) {
+		this.taxId = taxId;
+		this.docId = docId;
+		this.taxDetail = taxDetail;
 	}
+
+	
 }
