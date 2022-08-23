@@ -2,8 +2,14 @@
 
 int main()
 {
-  FILE *fp = fopen("./dummy/hello.txt", "w+");
+  FILE *fp = fopen("hello.txt", "w+");
+
   fprintf(fp, "%s %d\n", "Hello", 100);
+
   fclose(fp);
+
+  //
+  // fprintf(stdout, "%s %d\n", "Hello", 100);
+
   return 0;
 }
