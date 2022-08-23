@@ -76,4 +76,5 @@ int main()
 }
 
 // 다음과 같은 등식이 성립된다.
+// int *ptr = arr;
 // arr[i] == *(arr + i) == ptr[i] == *(ptr + i) == *(i + ptr) == i[ptr]
