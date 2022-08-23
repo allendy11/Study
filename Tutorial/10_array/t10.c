@@ -7,7 +7,7 @@ int arr[] = {1, 2, 3, 4};
 
 // [배열의 길이]
 int length = sizeof(arr) / sizeof(int);
-int length = sizeofa(arr) / sizeof(char);
+int length = sizeof(arr) / sizeof(char);
 // 길이 = 배열의 크기 / 자료형의 크기
 // 배열의 길이를 구하는 함수가 존재한다. (strlen);
 
