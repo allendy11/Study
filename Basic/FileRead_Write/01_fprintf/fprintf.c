@@ -4,7 +4,7 @@ int main()
 {
   FILE *fp = fopen("hello.txt", "w+");
 
-  fprintf(fp, "%s %d\n", "Hello", 100);
+  fprintf(fp, "%s %d\n", "Helloa", 100);
 
   fclose(fp);
 
