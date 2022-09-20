@@ -49,12 +49,12 @@ private:
   int h;
   int m;
   int s;
-  ;
+};
 
-  int main()
-  {
-    Time t1;
-    Time t2(5);
-    Time t3(4, 20);
-    Time t4(12, 35, 6);
-  }
+int main()
+{
+  Time t1;
+  Time t2(5);
+  Time t3(4, 20);
+  Time t4(12, 35, 6);
+}
