@@ -3,8 +3,7 @@ Created on Sep 29, 2022
 
 @author: neuroears
 '''
-import os
-import glob
+import os, glob, shutil
 from tqdm import tqdm
 
 if __name__ == '__main__':
@@ -34,11 +33,11 @@ if __name__ == '__main__':
     cwd = os.getcwd()
     hospital = 'SCHBC'
     tsv_list = glob.glob(f'{cwd}/{hospital}/**/*.tsv', recursive=True)
-    # for tsv in tsv_list:
-    #     print(tsv)
-    # for tsv in tqdm(tsv_list):
-    for tsv in tsv_list:
-        new_tsv_file = tsv.replace('SCHBC', 'BUSAN')
+    # for tsv_file in tsv_list:
+    #     print(tsv_file)
+    # for tsv_file in tqdm(tsv_list):
+    for tsv_file in tsv_list:
+        new_tsv_file = tsv_file.replace('SCHBC', 'BUSAN')
         new_tsv_path = os.path.dirname(new_tsv_file)
         
         print(new_tsv_file)
@@ -48,6 +47,7 @@ if __name__ == '__main__':
         
         if not os.path.isdir(new_tsv_path):
             os.makedirs(new_tsv_path)
-        
+        if not new_tsv_file in os.listdir(new_tsv_path):
+            shutil.copy(tsv_file, new_tsv_file)
         break
     
