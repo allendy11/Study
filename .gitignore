@@ -144,6 +144,8 @@ dist
 # End of https://www.toptal.com/developers/gitignore/api/node
 
 .DS_Store
+.vscode
 
 # Trash by Allen
 study_code2.py
+test.py
