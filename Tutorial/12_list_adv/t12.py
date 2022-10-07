@@ -1,13 +1,10 @@
 # 리스트 응용
 
 # 요소 추가 append
-from msilib import sequence
-
-
 a = [1,2,3]
 len(a) # 3
 a.append(4)
-print(a) # [1,2,3,4]
+print(a) # [1,2,3,4]  / 리스트 뒤쪽에 추가된다.
 len(a) # 4
 
 # 리스트 추가
@@ -36,7 +33,7 @@ print(a) # [0,1,2,10,3,20]
 a.insert(1,[6,7])
 print(a) # [0,[6,7],1,2,10,3,20]
 
-a[1:1] = [[8,9]
+a[1:1] = [8,9]
 print(a) # [0,8,9,[6,7],1,2,10,3,20]
 
 # 요소 삭제 remove , pop , del
@@ -68,6 +65,7 @@ a.reverse()
 # 리스트 정렬
 a.sort() == a.sort(reverse=False) # 오름 차순
 a.sort(reverse=True) # 내림 차순
+
 # sort vs sorted
 a = [3,5,4,1,2]
 a.sort()
@@ -87,10 +85,11 @@ a[len(a):] = [5,6]
 print(a) # [1,2,3,5,6] // 리스트 범위를 벗어난 인덱스 -> 마지막 인덱스
 
 # if 문
-# 다른 언어에서는 길이를 확인하여 리스트의 존재를 알수있다.
-if len(seq)
-if not len(seq)
+# 다른 언어에서는 길이를 확인하여 리스트의 존재여부를 알수있다.
+seq = []
+if len(seq): 
+if not len(seq):
 
-# 하지만 파이썬에서는 리스트 그 자체의 존재를 확인가능하며 이를 권장한다.
-if seq
-if not seq
+# 하지만 파이썬에서는 리스트 그 자체의 존재여부를 확인가능하며 이를 권장한다.
+if seq:
+if not seq:
